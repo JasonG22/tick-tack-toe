@@ -1,3 +1,18 @@
+.boardContainer {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0;
+}
 .squares {
     background-color: aqua;
+    height: 100px;
+}
+.border {
+    border-bottom: 1px solid black;
+
+}
+.borderRight {
+border-right: 1px solid black;
 }
