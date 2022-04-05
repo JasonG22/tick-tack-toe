@@ -3,8 +3,12 @@ const gameBoard = (function () {
         sqaures: [],
     }
     const _createSquares = (board) => {
-        for(let i = 0; i < 9; i++) {
-            board.sqaures[i] = document.createElement('div');
+        for(let i = 1; i <= 9; i++) {
+            let square = document.createElement('div');
+            let index = [i];
+            square.setAttribute('id', index);
+            square.setAttribute('class', 'squares');
+            board.sqaures.push(square);
         }
     } 
     return {
@@ -12,3 +16,5 @@ const gameBoard = (function () {
         board: board,
     }
 })();
+
+gameBoard._createSquares(gameBoard.board)
