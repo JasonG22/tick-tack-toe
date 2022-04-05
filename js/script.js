@@ -11,10 +11,14 @@ const gameBoard = (function () {
             board.sqaures.push(square);
         }
     } 
+    const createArray = () => {
+        _createSquares(board);
+        console.log(board);
+    }
     return {
-        _createSquares: _createSquares,
-        board: board,
+        createArray: createArray,
     }
 })();
 
-gameBoard._createSquares(gameBoard.board)
+gameBoard.createArray();
+
