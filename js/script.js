@@ -1,8 +1,12 @@
 const gameBoard = (function () {
     const board = {
-        sqaures: [],
+        squares: [],
+    }
+    
+    return {
+    
     }
     
 })();
-
-gameBoard._createSquares(gameBoard.board);
+gameBoard._createSquares(gameBoard.board)
+gameBoard.createBoard(gameBoard.board);
