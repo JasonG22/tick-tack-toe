@@ -19,4 +19,9 @@ const gameBoard = (function () {
     }
     
 })();
+const Player = (name, token) => {
+    name, 
+    token 
+    return;
+}
 gameBoard.cellClick();
