@@ -19,9 +19,24 @@ const gameBoard = (function () {
     }
     
 })();
-const Player = (token) => {
-    return {name, token}
-}
-const human = Player('x');
-console.log(human.token)
-gameBoard.cellClick();
+const Player = (function () {
+        let token;
+        const x = document.getElementById('tokenx');
+        const o = document.getElementById('tokeno')
+        x.addEventListener('click', (token) => {
+            token = 'x';
+            return token;
+        });
+        o.addEventListener('click', () => {
+            token = 'o';
+            return token;
+        })
+
+    const Player = (token) => {
+        return {token}
+    }
+    const human = Player(token);
+    console.log(human.token)
+    gameBoard.cellClick();
+})();
+
