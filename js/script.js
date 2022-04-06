@@ -1,6 +1,8 @@
 const gameBoard = (function () {
     const board = {
         squares: [],
+        player1: [],
+        player2: [],
 
     }
 
@@ -22,10 +24,12 @@ const Game = (function () {
             cell.textContent = player1;
             player1Go = false;
             player2Go = true
+            gameBoard.board.player1.push(position);
         } else if (player2Go){
             cell.textContent = player2;
             player2Go = false;
             player1Go = true;
+            gameBoard.board.player2.push(position);
         }
         
         return position;
