@@ -3,27 +3,40 @@ const gameBoard = (function () {
         squares: [],
 
     }
+
+    return {
+        
+    }
+    
+})();
+const Game = (function () {
     const cellClick = (player1, player2) => {
+        let player1Go = true;
+        let player2Go = false;
         const cells = document.querySelectorAll(".squares");
         cells.forEach(cell => {
         cell.addEventListener('click', () => {
         const position = cell.getAttribute('value');
         //Change this to players choise
-        cell.textContent = player1;
+        if(player1Go) {
+            cell.textContent = player1;
+            player1Go = false;
+            player2Go = true
+        } else if (player2Go){
+            cell.textContent = player2;
+            player2Go = false;
+            player1Go = true;
+        }
+        
         return position;
-    })
+        })
     });
 }
+    const writeToCell = () => {
+        Game.cellClick(p1token, p2token)
+    }
     return {
         cellClick: cellClick,
-    }
-    
-})();
-const Game = (function () {
-    const writeToCell = () => {
-        gameBoard.cellClick(p1token, p2token)
-    }
-    return {
         writeToCell: writeToCell,
     }
 })();
