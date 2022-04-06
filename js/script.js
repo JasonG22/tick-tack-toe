@@ -3,12 +3,13 @@ const gameBoard = (function () {
         squares: [],
 
     }
-    const cellClick = () => {
+    const cellClick = (player1, player2) => {
         const cells = document.querySelectorAll(".squares");
         cells.forEach(cell => {
         cell.addEventListener('click', () => {
         const position = cell.getAttribute('value');
         //Change this to players choise
+        cell.textContent = player1;
         return position;
     })
     });
@@ -34,19 +35,15 @@ const Player = (function () {
         tokenChoise.forEach(tokens => {
             tokens.addEventListener('click', () => {
                 let token = tokens.textContent;
-                console.log('Player1 token ' + token);
+                console.log('Player2 token ' + token);
                 return token;
             })
         })
     }
-
+    
     return {
         Player1: Player1,
         Player2: Player2,
     }
 
 })();
-Player.Player1();
-Player.Player2();
-
-gameBoard.cellClick();
