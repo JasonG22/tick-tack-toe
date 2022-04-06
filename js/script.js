@@ -39,9 +39,7 @@ const Player = (function () {
             })
         })
     }
-    const CreatePlayer = (token) => {
-        return {token}
-    }
+
     return {
         Player1: Player1,
         Player2: Player2,
