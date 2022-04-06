@@ -9,7 +9,6 @@ const gameBoard = (function () {
         cell.addEventListener('click', () => {
         const position = cell.getAttribute('value');
         //Change this to players choise
-        cell.textContent = 'X';
         return position;
     })
     });
@@ -20,23 +19,36 @@ const gameBoard = (function () {
     
 })();
 const Player = (function () {
-        let token;
-        const x = document.getElementById('tokenx');
-        const o = document.getElementById('tokeno')
-        x.addEventListener('click', (token) => {
-            token = 'x';
-            return token;
-        });
-        o.addEventListener('click', () => {
-            token = 'o';
-            return token;
+    const Player1 = () => {
+        const tokenChoise = document.querySelectorAll('.player1');
+        tokenChoise.forEach(tokens => {
+            tokens.addEventListener('click', () => {
+                let token = tokens.textContent;
+                console.log('Player1 token ' + token);
+                return token;
+            })
         })
-
-    const Player = (token) => {
+    }
+    const Player2 = () => {
+        const tokenChoise = document.querySelectorAll('.player2');
+        tokenChoise.forEach(tokens => {
+            tokens.addEventListener('click', () => {
+                let token = tokens.textContent;
+                console.log('Player1 token ' + token);
+                return token;
+            })
+        })
+    }
+    const CreatePlayer = (token) => {
         return {token}
     }
-    const human = Player(token);
-    console.log(human.token)
-    gameBoard.cellClick();
-})();
+    return {
+        Player1: Player1,
+        Player2: Player2,
+    }
 
+})();
+Player.Player1();
+Player.Player2();
+
+gameBoard.cellClick();
