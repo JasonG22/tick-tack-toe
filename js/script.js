@@ -19,48 +19,50 @@ const gameBoard = (function () {
     }
     
 })();
+const Game = (function () {
+    const writeToCell = () => {
+        gameBoard.cellClick(p1token, p2token)
+    }
+    return {
+        writeToCell: writeToCell,
+    }
+})();
 
 const Player = (function () {
-    const Player1 = () => {
-        const player1Selected = true;
-        const tokenChoise = document.querySelectorAll('.player1');
-        tokenChoise.forEach(tokens => {
-            tokens.addEventListener('click', () => {
-                let token = tokens.textContent;
-                console.log('Player1 token ' + token);
-                return token;
-            })
-        })
-        return player1Selected;
-    }
-    const Player2 = () => {
-       
-        const tokenChoise = document.querySelectorAll('.player2');
-        tokenChoise.forEach(tokens => {
-            tokens.addEventListener('click', () => {
-                let token = tokens.textContent;
-                const player2Selected = true;
-                console.log('Player2 token ' + token);
-                if (Player1.player1Selected && player2Selected) {
-                    Game();
-                }
-                return token;
-            })
-        })
-       
-    }
+//    const Player1 = () => {
+   
+//     }
+//     const Player2 = (p1token) => {
     
-    return {
-        Player1: Player1,
-        Player2: Player2,
-    }
+//     }
+//     return {
+//         Player1: Player1,
+//         Player2: Player2,
+//     }
 
 })();
-const Game = (function () {
-    console.log('Testing')
-    gameBoard.cellClick(Player.Player1.token);
-})();
+// Player.Player1();
+// Player.Player2(Player.Player1.p1token);
+let p1token;
+const player1tokens = document.querySelectorAll('.player1');
+player1tokens.forEach(tokens => {
+    tokens.addEventListener('click', () => {
+        p1token = tokens.textContent;
+        console.log('Player1 token ' + p1token);
+        return p1token;
+    });
+    
+});
 
-
-Player.Player1();
-Player.Player2();
+let p2token;
+    const player2tokens = document.querySelectorAll('.player2');
+    player2tokens.forEach(tokens => {
+        tokens.addEventListener('click', () => {
+            p2token = tokens.textContent;
+            console.log('Player2 token ' + p2token);
+            if(p1token && p2token) {
+                Game.writeToCell();
+            }
+            return p2token;
+        });
+    });
