@@ -3,11 +3,24 @@ const gameBoard = (function () {
         squares: [],
         player1: [],
         player2: [],
-
+        winningCombo: [0,1,2],
+    }
+    const checkCombo = () => {
+        const winningCombo =  [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4 ,7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [0, 4, 6],
+    ];
     }
 
     return {
         board: board,
+        checkCombo: checkCombo,
     }
     
 })();
@@ -25,6 +38,7 @@ const Game = (function () {
             player1Go = false;
             player2Go = true
             gameBoard.board.player1.push(position);
+            gameBoard.checkCombo();
         } else if (player2Go){
             cell.textContent = player2;
             player2Go = false;
@@ -39,6 +53,7 @@ const Game = (function () {
     const writeToCell = () => {
         Game.cellClick(p1token, p2token)
     }
+
     return {
         cellClick: cellClick,
         writeToCell: writeToCell,
@@ -83,3 +98,15 @@ let p2token;
             return p2token;
         });
     });
+    var array1 = ["cat", "sum","fun", "run"];
+    var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
+   
+    const winningCombo =  [0, 1, 2];
+    const test = [
+        [1,3],
+        [5, 7, 8],
+    ];
+    function combo() {
+    let filteredArray = winningCombo.filter(value => test.includes(value));
+    console.log(filteredArray);
+    }
