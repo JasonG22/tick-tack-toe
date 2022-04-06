@@ -19,8 +19,10 @@ const gameBoard = (function () {
     }
     
 })();
+
 const Player = (function () {
     const Player1 = () => {
+        const player1Selected = true;
         const tokenChoise = document.querySelectorAll('.player1');
         tokenChoise.forEach(tokens => {
             tokens.addEventListener('click', () => {
@@ -29,16 +31,23 @@ const Player = (function () {
                 return token;
             })
         })
+        return player1Selected;
     }
     const Player2 = () => {
+       
         const tokenChoise = document.querySelectorAll('.player2');
         tokenChoise.forEach(tokens => {
             tokens.addEventListener('click', () => {
                 let token = tokens.textContent;
+                const player2Selected = true;
                 console.log('Player2 token ' + token);
+                if (Player1.player1Selected && player2Selected) {
+                    Game();
+                }
                 return token;
             })
         })
+       
     }
     
     return {
@@ -47,3 +56,11 @@ const Player = (function () {
     }
 
 })();
+const Game = (function () {
+    console.log('Testing')
+    gameBoard.cellClick(Player.Player1.token);
+})();
+
+
+Player.Player1();
+Player.Player2();
