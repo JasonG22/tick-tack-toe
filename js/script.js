@@ -5,7 +5,7 @@ const gameBoard = (function () {
     }
 
     return {
-        
+        board: board,
     }
     
 })();
