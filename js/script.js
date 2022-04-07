@@ -100,20 +100,4 @@ const Game = (function () {
     }
 })();
 
-const Player = (function () {
-//    const Player1 = () => {
-   
-//     }
-//     const Player2 = (p1token) => {
-    
-//     }
-//     return {
-//         Player1: Player1,
-//         Player2: Player2,
-//     }
-
-})();
-// Player.Player1();
-// Player.Player2(Player.Player1.p1token);
-
 Game.writeToCell();
