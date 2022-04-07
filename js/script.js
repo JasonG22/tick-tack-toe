@@ -21,6 +21,7 @@ const gameBoard = (function () {
     playAgin.addEventListener('click', () => {
         location.reload();
     });
+    let hasWon = false;
     const checkCombo = () => {
     board.winningCombo.forEach(winningCombos => {
         const xwins = winningCombos.every(state => board.player1.includes(state));
@@ -29,8 +30,13 @@ const gameBoard = (function () {
         if(xwins) {
             msgText.textContent = "X is the winner!";
             document.body.appendChild(playAgin);
+            hasWon = true;
         } else if (owins){
             msgText.textContent = "O is the Winner!";
+            document.body.appendChild(playAgin);
+            hasWon = true;
+        } else if(board.player1.length >= 5 && board.player2.length >=4 && hasWon === false){
+            msgText.textContent = "This game was a draw, please play again";
             document.body.appendChild(playAgin);
         }
         });
