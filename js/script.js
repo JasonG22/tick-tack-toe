@@ -10,8 +10,9 @@ const gameBoard = (function () {
             ['0', '3', '6'],
             ['1', '4' ,'7'],
             ['2', '5', '8'],
+            ['3', '4', '8'],
             ['0', '4', '8'],
-            ['0', '4', '6'],
+            ['2', '4', '6'],
     ],
     }
     const checkCombo = () => {
@@ -40,12 +41,18 @@ const Game = (function () {
     const cellClick = (player1, player2) => {
         let player1Go = true;
         let player2Go = false;
+       
         const cells = document.querySelectorAll(".squares");
         cells.forEach(cell => {
         cell.addEventListener('click', () => {
+        let msgText = document.getElementById('messageText');
         const position = cell.getAttribute('value');
         //Change this to players choise
+        if(cell.textContent !== "") {
+           return msgText.textContent = "This square has already been choosen. Please pick another square."
+        }
         if(player1Go) {
+            msgText.textContent = '';
             cell.textContent = player1;
             player1Go = false;
             player2Go = true
@@ -56,6 +63,7 @@ const Game = (function () {
             }
             
         } else if (player2Go){
+            msgText.textContent = '';
             cell.textContent = player2;
             player2Go = false;
             player1Go = true;
