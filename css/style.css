@@ -9,7 +9,8 @@ body {
     color: var(--white);
     text-align: center;
 }
-#messageText {
+#messageText,
+.wrapper h2 {
     margin-top: 2rem;
     font-family: var(--main-font);
     font-size: 1.2rem;
