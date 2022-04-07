@@ -1,6 +1,8 @@
 :root {
     --white: #F4FAFF;
+    --light-blue: #51E5FF;
     --tic-tac-toe: 'Permanent Marker', cursive, sans-serif;
+    --main-font: 'Roboto', sans-serif;
 }
 body {
     background-color: #253237;
@@ -9,6 +11,8 @@ body {
 }
 #messageText {
     margin-top: 2rem;
+    font-family: var(--main-font);
+    font-size: 1.2rem;
 }
 .wrapper {
     display: flex;
@@ -20,6 +24,7 @@ body {
     margin-top: 4rem;
     font-family: var(--tic-tac-toe);
     font-size: 4rem;
+    color: var(--light-blue);
 }
 .boardContainer {
     margin-top: 4rem;
