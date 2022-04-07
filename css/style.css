@@ -1,5 +1,6 @@
 :root {
     --white: #F4FAFF;
+    --tic-tac-toe: 'Permanent Marker', cursive, sans-serif;
 }
 body {
     background-color: #253237;
@@ -13,7 +14,7 @@ body {
 }
 .wrapper h1 {
     margin-top: 4rem;
-    font-family: 'Permanent Marker', cursive, sans-serif;
+    font-family: var(--tic-tac-toe);
     font-size: 4rem;
 }
 .boardContainer {
@@ -29,6 +30,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--tic-tac-toe);
     font-size: 2rem;
 }
 .border {
