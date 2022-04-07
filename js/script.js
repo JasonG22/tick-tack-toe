@@ -39,10 +39,11 @@ const gameBoard = (function () {
             msgText.textContent = "This game was a draw, please play again";
             document.body.appendChild(playAgin);
         }
-        });
+    });
         return;
     }
     return {
+        hasWon: hasWon,
         board: board,
         checkCombo: checkCombo,
     }
@@ -59,8 +60,7 @@ const Game = (function () {
         const cells = document.querySelectorAll(".squares");
         cells.forEach(cell => {
         cell.addEventListener('click', () => {
-        const position = cell.getAttribute('value');
-        
+        const position = cell.getAttribute('value'); 
         //Change this to players choise
         if(cell.textContent !== "") {
            return msgText.textContent = "This square has already been choosen. Please pick another square."
