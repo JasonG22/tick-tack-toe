@@ -102,26 +102,6 @@ const Player = (function () {
 })();
 // Player.Player1();
 // Player.Player2(Player.Player1.p1token);
-let p1token;
-const player1tokens = document.querySelectorAll('.player1');
-player1tokens.forEach(tokens => {
-    tokens.addEventListener('click', () => {
-        p1token = tokens.textContent;
-        console.log('Player1 token ' + p1token);
-        return p1token;
-    });
-    
-});
-
-let p2token;
-    const player2tokens = document.querySelectorAll('.player2');
-    player2tokens.forEach(tokens => {
-        tokens.addEventListener('click', () => {
-            p2token = tokens.textContent;
-            console.log('Player2 token ' + p2token);
-            if(p1token && p2token) {
-                Game.writeToCell();
-            }
-            return p2token;
-        });
-    });
+let p1token = 'X';
+let p2token = 'O';
+Game.writeToCell();
