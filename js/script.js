@@ -17,9 +17,12 @@ const gameBoard = (function () {
     const checkCombo = () => {
     board.winningCombo.forEach(winningCombos => {
         const xwins = winningCombos.every(state => board.player1.includes(state));
+        const owins = winningCombos.every(state => board.player2.includes(state));
         console.log("xwins: " + xwins);
         if(xwins) {
             alert("X is the winner!");
+        } else if (owins){
+            alert('O is the winnder')
         }
         });
         return;
@@ -57,6 +60,9 @@ const Game = (function () {
             player2Go = false;
             player1Go = true;
             gameBoard.board.player2.push(position);
+            if(gameBoard.board.player2.length >= 3) {
+                gameBoard.checkCombo();
+                }
         }
         
         return position;
