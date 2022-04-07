@@ -3,27 +3,36 @@ const gameBoard = (function () {
         squares: [],
         player1: [],
         player2: [],
-        winningCombo: [0,1,2],
+        winningCombo:  [
+            ['0', '1', '2'],
+            ['3', '4', '5'],
+            ['6', '7', '8'],
+            ['0', '3', '6'],
+            ['1', '4' ,'7'],
+            ['2', '5', '8'],
+            ['0', '4', '8'],
+            ['0', '4', '6'],
+    ],
     }
     const checkCombo = () => {
-        const winningCombo =  [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4 ,7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [0, 4, 6],
-    ];
+    board.winningCombo.forEach(winningCombos => {
+        const xwins = winningCombos.every(state => board.player1.includes(state));
+        console.log("xwins: " + xwins);
+        if(xwins) {
+            alert("X is the winner!");
+        }
+        });
+        return;
     }
-
     return {
         board: board,
         checkCombo: checkCombo,
     }
     
 })();
+
+   
+
 const Game = (function () {
     const cellClick = (player1, player2) => {
         let player1Go = true;
@@ -38,7 +47,11 @@ const Game = (function () {
             player1Go = false;
             player2Go = true
             gameBoard.board.player1.push(position);
+            // game.player1.push(position);
+            if(gameBoard.board.player1.length >= 3) {
             gameBoard.checkCombo();
+            }
+            
         } else if (player2Go){
             cell.textContent = player2;
             player2Go = false;
@@ -98,15 +111,3 @@ let p2token;
             return p2token;
         });
     });
-    var array1 = ["cat", "sum","fun", "run"];
-    var array2 = ["bat", "cat","dog","sun", "hut", "gut"];
-   
-    const winningCombo =  [0, 1, 2];
-    const test = [
-        [1,3],
-        [5, 7, 8],
-    ];
-    function combo() {
-    let filteredArray = winningCombo.filter(value => test.includes(value));
-    console.log(filteredArray);
-    }
