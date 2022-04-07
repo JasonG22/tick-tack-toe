@@ -1,13 +1,26 @@
-.boardContainer {
-    display: grid;
+.wrapper {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+.wrapper h1 {
+    margin-top: 4rem;
+}
+.boardContainer {
+    margin-top: 4rem;
+    display: grid;
+    width: 40%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 0;
 }
 .squares {
-    background-color: aqua;
     height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
 .border {
     border-bottom: 1px solid black;
