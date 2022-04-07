@@ -1,3 +1,10 @@
+:root {
+    --white: #F4FAFF;
+}
+body {
+    background-color: #253237;
+    color: var(--white);
+}
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -23,9 +30,9 @@
     font-size: 2rem;
 }
 .border {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--white);
 
 }
 .borderRight {
-border-right: 1px solid black;
+border-right: 1px solid var(--white);
 }
