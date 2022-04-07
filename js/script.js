@@ -1,3 +1,4 @@
+let msgText = document.getElementById('messageText');
 const gameBoard = (function () {
     const board = {
         squares: [],
@@ -21,9 +22,9 @@ const gameBoard = (function () {
         const owins = winningCombos.every(state => board.player2.includes(state));
         console.log("xwins: " + xwins);
         if(xwins) {
-            alert("X is the winner!");
+           msgText.textContent = "X is the winner!";
         } else if (owins){
-            alert('O is the winnder')
+            msgText.textContent = "O is the Winner!";
         }
         });
         return;
@@ -45,17 +46,18 @@ const Game = (function () {
         const cells = document.querySelectorAll(".squares");
         cells.forEach(cell => {
         cell.addEventListener('click', () => {
-        let msgText = document.getElementById('messageText');
         const position = cell.getAttribute('value');
+        
         //Change this to players choise
         if(cell.textContent !== "") {
            return msgText.textContent = "This square has already been choosen. Please pick another square."
         }
         if(player1Go) {
+            cell.classList.add('purple');
             msgText.textContent = '';
             cell.textContent = player1;
             player1Go = false;
-            player2Go = true
+            player2Go = true;
             gameBoard.board.player1.push(position);
             // game.player1.push(position);
             if(gameBoard.board.player1.length >= 3) {
@@ -63,6 +65,7 @@ const Game = (function () {
             }
             
         } else if (player2Go){
+            cell.classList.add('pink');
             msgText.textContent = '';
             cell.textContent = player2;
             player2Go = false;
@@ -78,6 +81,8 @@ const Game = (function () {
     });
 }
     const writeToCell = () => {
+        let p1token = 'X';
+        let p2token = 'O';
         Game.cellClick(p1token, p2token)
     }
 
@@ -102,6 +107,5 @@ const Player = (function () {
 })();
 // Player.Player1();
 // Player.Player2(Player.Player1.p1token);
-let p1token = 'X';
-let p2token = 'O';
+
 Game.writeToCell();

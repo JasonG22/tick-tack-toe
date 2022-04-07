@@ -40,3 +40,9 @@ body {
 .borderRight {
 border-right: 1px solid var(--white);
 }
+.purple {
+ color: #858AE3;
+}
+.pink {
+    color: #E63462;
+}
