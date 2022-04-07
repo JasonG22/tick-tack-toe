@@ -16,15 +16,23 @@ const gameBoard = (function () {
             ['2', '4', '6'],
     ],
     }
+    const playAgin = document.createElement("button");
+    playAgin.setAttribute('id', 'playAgainBtn');
+    playAgin.textContent = 'Play Again';
+    playAgin.addEventListener('click', () => {
+        location.reload();
+    });
     const checkCombo = () => {
     board.winningCombo.forEach(winningCombos => {
         const xwins = winningCombos.every(state => board.player1.includes(state));
         const owins = winningCombos.every(state => board.player2.includes(state));
         console.log("xwins: " + xwins);
         if(xwins) {
-           msgText.textContent = "X is the winner!";
+            msgText.textContent = "X is the winner!";
+            document.body.appendChild(playAgin);
         } else if (owins){
             msgText.textContent = "O is the Winner!";
+            document.body.appendChild(playAgin);
         }
         });
         return;
